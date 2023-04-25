@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TYPING SPEED TEST</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>TYPING SPEED TEST</h1>
+    <div class="container">
+        <div class="difficultyLevel">
+            <h1>DIFFICULTY LEVEL</h1>
+            <div class="inputTextType">
+                <button class="level diff" value="Words" onclick="initial(value)" >Words</button>
+                <button class="level diff" value = "Quotes" onclick="initial(value)" >Quotes</button>
+                <button class="level diff" value = "Punctuations" onclick="initial(value)" >Punctuations</button>
+                <button class="level diff" value = "Numbers" onclick="initial(value)" >Numbers</button>
+            </div>
+            <h1>TIME</h1>
+            <div class="time">
+                <button class="timeItem level" value="15 secs" onclick="initialTime(15)">15 secs</button>
+                <button class="timeItem level" value="30 secs" onclick="initialTime(30)">30 secs</button>
+                <button class="timeItem level" value="60 secs" onclick="initialTime(60)">60 secs</button>
+                <button class="timeItem level" value="120 secs" onclick="initialTime(120)">120 secs</button>
+            </div>
+            <button class="level startButton" onclick="startTest()">Start</button>
+        </div>
+        
+    </div>
+    <div class="wrapper dispNone">
+        <input type="text" class="input-field">
+        <div class="content-box">
+            <div class="typing-text">
+                <p id="paragraph">\</p>
+            </div>
+            <div class="content">
+                <ul class="result-details">
+                    <li class="time">
+                        <p>
+                            Time Left:
+                        </p>
+                        <span class="TimeSet"><b>0</b>s</span>
+                    </li>
+                    <li class="mistake">
+                        <p>
+                            Mistakes:
+                        </p>
+                        <span>0</span>
+                    </li>
+                    <li class="wpm">
+                        <p>
+                            WPM:
+                        </p>
+                        <span>0</span>
+                    </li>
+                    <li class="cpm">
+                        <p>
+                            ACCURACY:
+                        </p>
+                        <span>100%</span>
+                    </li>
+                </ul>
+                <button class="startButton">Try Again</button>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
