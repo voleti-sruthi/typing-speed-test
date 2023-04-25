@@ -71,6 +71,11 @@ body {
     color: black;
     transform: scale(1.2);
 }
+.activeTime{
+    background-color: white;
+    color: black;
+    transform: scale(1.2);
+}
 .startButton{
     background-color: #82b7f3;
     width:80%;

@@ -60,6 +60,7 @@ const timeTag = document.querySelector(".time span b")
 const mistakeTag = document.querySelector(".mistake span")
 const wpmTag = document.querySelector(".wpm span")
 const cpmTag = document.querySelector(".cpm span")
+var wpm;
 
 let timer;
 var maxTime;
@@ -99,10 +100,10 @@ function initial(value) {
 function initialTime(value){
     for(var j=0;j<=3;j++){
         if(value == document.getElementsByClassName("timeItem")[j].value){
-            document.getElementsByClassName("timeItem")[j].classList.add("activeDiff");
+            document.getElementsByClassName("timeItem")[j].classList.add("activeTime");
         }
         else{
-            document.getElementsByClassName("timeItem")[j].classList.remove("activeDiff");
+            document.getElementsByClassName("timeItem")[j].classList.remove("activeTime");
         }
     }
     maxTime = value;
@@ -152,14 +153,15 @@ function initTyping() {
         characters.forEach(span => span.classList.remove("active"));
         characters[charIndex].classList.add("active");
 
-        let wpm = Math.round(((charIndex - mistakes) / 5) / (maxTime - timeLeft) *multiplicationFactor);
-        wpm = wpm < 0 || !wpm || wpm === Infinity ? 0: wpm;
+        let wpm = Math.round((((charIndex - mistakes) / 5) / (maxTime - timeLeft))*60);
+        wpm = wpm < 0 || !wpm || wpm == Infinity ? 0: wpm;
         wpmTag.innerText = wpm;
         mistakeTag.innerText = mistakes;
         cpmTag.innerText = (((charIndex - mistakes)/charIndex)*100).toFixed(2) + "%";
     } else {
-        clearInterval(timer);
+        
         inpField.value = "";
+        clearInterval(timer);
     }
 }
 
@@ -167,8 +169,6 @@ function initTimer() {
     if (timeLeft > 0) {
         timeLeft--;
         timeTag.innerText = timeLeft;
-        let wpm = Math.round(((charIndex - mistakes) / 5) / (maxTime - timeLeft) * 60);
-        wpmTag.innerText = wpm;
     } else {
         clearInterval(timer);
     }
